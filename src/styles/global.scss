@@ -1,0 +1,28 @@
+:root {
+  --color-primary-background: #f8f8f8;
+  --color-primary-text: #29292e;
+  --primary-font: 'Roboto', sans-serif;
+  --secondary-font: 'Poppins', sans-serif;
+  --color-purple: #835afd;
+  --color-white: #fff;
+  --color-gray-light: #f8f8f8;
+  --color-border: #a8a8b3;
+  --color-red-button: #ea4335;
+  --color-paragraph: #737380;
+  --color-link: #e559f9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body { 
+  background: var(--color-primary-background);
+  color: var(--color-primary-text);
+}
+
+body, input, button, textarea {
+  font: 400 16px var(--primary-font);
+}
