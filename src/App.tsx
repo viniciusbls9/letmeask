@@ -1,27 +1,21 @@
-import { BrowserRouter, Route, useHistory } from 'react-router-dom'
-
-import { createContext, useState } from 'react'
-import api from './service/api';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Home } from './pages/Home';
 import { NewRoom } from './pages/NewRoom';
+import { Room } from './pages/Room';
+import { AuthContextProvider } from './contexts/AuthContext'
+
 import './styles/global.scss'
 
-export const AuthContext = createContext({} as any);
-
 function App() {
-  const history = useHistory();
-  const [user, setUser] = useState()
-
-  function signInWithGoogle() {
-    api.signInWithGoogle()
-  }
-
   return (
     <BrowserRouter>
-      <AuthContext.Provider value={{ user, signInWithGoogle }}>
-        <Route path="/" exact component={Home} />
-        <Route path="/rooms/new" component={NewRoom} />
-      </AuthContext.Provider>
+      <AuthContextProvider>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/rooms/new" component={NewRoom} />
+          <Route path="/rooms/:id" component={Room} />
+        </Switch>
+      </AuthContextProvider>
     </BrowserRouter>
   );
 }
