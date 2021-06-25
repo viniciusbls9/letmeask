@@ -4,7 +4,7 @@ import { auth, firebase } from "../service/firebaseConfig";
 type User = {
   id: string;
   name: string;
-  avatar: string | null;
+  avatar: string | undefined;
 }
 
 type AuthContextType = {
