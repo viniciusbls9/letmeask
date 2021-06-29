@@ -1,15 +1,15 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { auth, firebase } from "../service/firebaseConfig";
 
+type AuthContextType = {
+  user: User | undefined;
+  signInWithGoogle: () => Promise<void>;
+}
+
 type User = {
   id: string;
   name: string;
   avatar: string | undefined;
-}
-
-type AuthContextType = {
-  user: User | undefined;
-  signInWithGoogle: () => Promise<void>;
 }
 
 type AuthContextProviderProps = {
